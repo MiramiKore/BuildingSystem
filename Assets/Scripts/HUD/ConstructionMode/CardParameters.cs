@@ -11,9 +11,9 @@ namespace HUD.ConstructionMode
         [HideInInspector] public UnityEvent<GameObject> cardIsClick;
         [HideInInspector] public UnityEvent<bool, GameObject> cardIsHeld;
         
-        private void Start()
+        public void Initialize(CardsManager cardsManager)
         {
-            FindAnyObjectByType<CardsManager>().cardIsCreated.AddListener(SetCardParameters);
+            cardsManager.cardIsCreated.AddListener(SetCardParameters);
         }
 
         // Устанавливаем параметры карточки

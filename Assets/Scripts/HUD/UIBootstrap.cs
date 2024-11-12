@@ -12,6 +12,7 @@ namespace HUD
         private SetGameMode _setGameMode;
 
         private CardsManager _cardsManager;
+        private CardParameters _cardParameters;
         private SwitchingBuildingTypes _switchingBuildingTypes;
         private BuildingRegister _buildingRegister;
 
@@ -38,6 +39,7 @@ namespace HUD
         private void ConstructionModesInitialize()
         {
             _cardsManager = FindAnyObjectByType<CardsManager>();
+            _cardParameters = FindAnyObjectByType<CardParameters>();
             _switchingBuildingTypes = FindAnyObjectByType<SwitchingBuildingTypes>();
             _buildingRegister = FindAnyObjectByType<BuildingRegister>();
 
@@ -45,6 +47,7 @@ namespace HUD
                 Debug.LogWarning("Missing ConstructionModes component");
 
             _cardsManager.Initialize(_switchingModsUI, _switchingBuildingTypes, _buildingRegister);
+            _cardParameters.Initialize(_cardsManager);
         }
     }
 }
