@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using Gameplay;
+using HUD.ConstructionMode.TypesConstruction.Types;
+using HUD.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace HUD.TypesConstruction
+namespace HUD.ConstructionMode.TypesConstruction
 {
     public class SwitchingBuildingTypes : MonoBehaviour
     {
-        public UnityEvent<TypeBuilding> switchBuildingType;
+        [HideInInspector] public UnityEvent<TypeBuilding> switchBuildingType;
         
         [SerializeField] private List<Type> typesList;
         

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay
+namespace HUD.Data
 {
     public class CardData : MonoBehaviour
     {

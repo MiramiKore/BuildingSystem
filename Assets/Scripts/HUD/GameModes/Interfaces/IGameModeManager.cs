@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using HUD.GameModes.Modes;
 
 namespace HUD.GameModes.Interfaces
 {
     public interface IGameModeManager
     {
-        public GameMode FindGameMode(GameModeType type);
+        public BaseGameMode FindGameMode(GameModeType type);
         public string GetModeTitle(GameModeType type);
-        public List<GameMode> GameModes { get;}
+        public List<BaseGameMode> GameModes { get; }
     }
 }

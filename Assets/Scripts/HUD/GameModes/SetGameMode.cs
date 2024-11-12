@@ -1,4 +1,5 @@
 ﻿using HUD.GameModes.Interfaces;
+using HUD.GameModes.Modes;
 using TMPro;
 using UnityEngine;
 
@@ -18,10 +19,10 @@ namespace HUD.GameModes
         }
         
         // Устанавливаем текущий режим игры
-        private void SetMode(GameMode currentMode)
+        private void SetMode(BaseGameMode currentMode)
         {
-            modeTitle.text = _gameModeManager.GetModeTitle(currentMode.Type);
-            currentMode.UI.SetActive(true);
+            modeTitle.text = _gameModeManager.GetModeTitle(currentMode.GetModeType());
+            currentMode.gameObject.SetActive(true);
         }
     }
 }

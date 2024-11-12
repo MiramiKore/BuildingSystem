@@ -1,4 +1,6 @@
+using System;
 using HUD.GameModes.Interfaces;
+using HUD.GameModes.Modes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,29 +9,32 @@ namespace HUD.GameModes
 {
     public class SwitchingModsUI : MonoBehaviour
     {
-        [HideInInspector] public UnityEvent<GameMode> gameModeSwitch; // Событие смены режима
+        [HideInInspector] public UnityEvent<BaseGameMode> gameModeSwitch; // Событие смены режима
 
         // Кнопки переключения режимов
         [SerializeField] private Button previousModeButton;
         [SerializeField] private Button nextModeButton;
-        
+
         // Текущий режим игры и его индекс
-        private GameMode _currentMode;
+        private BaseGameMode _currentMode;
         private int _currentModeIndex;
-        
+
         private IGameModeManager _gameModeManager;
-        
+
         public void Initialize(GameModeManager gameModeManager)
         {
             _gameModeManager = gameModeManager;
-            
+
             nextModeButton.onClick.AddListener(NextMod);
             previousModeButton.onClick.AddListener(PreviousMode);
-            
+        }
+
+        private void Start()
+        {
             // В начале игры устанавливаем текущим режимом игры - управление
             SwitchMod(_gameModeManager.GameModes[0]);
         }
-        
+
         // Следующий режим игры
         private void NextMod()
         {
@@ -49,9 +54,12 @@ namespace HUD.GameModes
         }
 
         // Переключение режима игры
-        private void SwitchMod(GameMode newGameMode)
+        private void SwitchMod(BaseGameMode newGameMode)
         {
-            _currentMode?.UI.SetActive(false);
+            foreach (var mode in _gameModeManager.GameModes)
+            {
+                mode.gameObject.SetActive(false);
+            }
 
             _currentMode = newGameMode;
 

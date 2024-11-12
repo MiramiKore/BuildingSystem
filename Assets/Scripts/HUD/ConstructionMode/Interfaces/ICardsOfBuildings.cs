@@ -1,6 +1,6 @@
-﻿using Gameplay;
+﻿using HUD.Data;
 
-namespace HUD.TypesConstruction.Interfaces
+namespace HUD.ConstructionMode.Interfaces
 {
     public interface ICardsOfBuildings
     {

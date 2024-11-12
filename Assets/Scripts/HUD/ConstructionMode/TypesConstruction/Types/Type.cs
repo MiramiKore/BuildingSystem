@@ -1,12 +1,12 @@
-﻿using Gameplay;
+﻿using HUD.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HUD.TypesConstruction
+namespace HUD.ConstructionMode.TypesConstruction.Types
 {
     public class Type : MonoBehaviour
     {
-        public Button button;
+        [HideInInspector] public Button button;
         public TypeBuilding type;
         
         private void Awake()

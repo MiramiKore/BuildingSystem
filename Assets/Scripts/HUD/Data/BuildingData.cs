@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace HUD.Data
 {
-    [CreateAssetMenu(fileName = "BuildingName",menuName = "Scriptables/Building")]
-    public class BuildingData : ScriptableObject
+    public class BuildingData : MonoBehaviour
     {
-        public GameObject prefab;
         public Vector2Int size;
         public Sprite icon;
         public string title;

@@ -1,27 +1,19 @@
 ﻿using System.Collections.Generic;
 using HUD.GameModes.Interfaces;
+using HUD.GameModes.Modes;
 using UnityEngine;
 
 namespace HUD.GameModes
 {
     public class GameModeManager : MonoBehaviour, IGameModeManager
     {
-        public List<GameMode> GameModes { get; private set; } // Режимы игры
+        [SerializeField] private List<BaseGameMode> gameModes;
+        public List<BaseGameMode> GameModes => gameModes; // Режимы игры
         
         private Dictionary<GameModeType, string> _modeTitles; // Названия игровых режимов
         
-        [SerializeField] private GameObject[] gameModesUI; // Интерфейсы режимов игры
-        
         public void Initialize()
         {
-            // Создаем экземпляр списка с игровыми режимами
-            GameModes = new List<GameMode>()
-            {
-                new GameMode(GameModeType.Control, gameModesUI[0]),
-                new GameMode(GameModeType.Construction, gameModesUI[1]),
-                new GameMode(GameModeType.Viewing, gameModesUI[2])
-            };
-            
             // Создаем экземпляр словря с названиями игровых режимов
             _modeTitles = new Dictionary<GameModeType, string>
             {
@@ -32,9 +24,9 @@ namespace HUD.GameModes
         }
 
         // Ищем и возвращаем игровой режим по его типу
-        public GameMode FindGameMode(GameModeType type)
+        public BaseGameMode FindGameMode(GameModeType type)
         {
-            return GameModes.Find(mode => mode.Type == type);
+            return GameModes.Find(mode => mode.GetModeType() == type);
         }
 
         // Получаем и возвращаем название режима по его типу
