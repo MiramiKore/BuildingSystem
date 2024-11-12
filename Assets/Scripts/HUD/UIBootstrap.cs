@@ -1,5 +1,5 @@
 ﻿using HUD.ConstructionMode;
-using HUD.ConstructionMode.TypesConstruction;
+using HUD.ConstructionMode.TypesOfBuildings;
 using HUD.GameModes;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ namespace HUD
         private SwitchingModsUI _switchingModsUI;
         private SetGameMode _setGameMode;
 
-        private CardsOfBuildings _cardsOfBuildings;
+        private CardsManager _cardsManager;
         private SwitchingBuildingTypes _switchingBuildingTypes;
         private BuildingRegister _buildingRegister;
         
@@ -37,14 +37,14 @@ namespace HUD
 
         private void ConstructionModesInitialize()
         {
-            _cardsOfBuildings = FindAnyObjectByType<CardsOfBuildings>();
+            _cardsManager = FindAnyObjectByType<CardsManager>();
             _switchingBuildingTypes = FindAnyObjectByType<SwitchingBuildingTypes>();
             _buildingRegister = FindAnyObjectByType<BuildingRegister>();
             
-            if (_cardsOfBuildings == null || _switchingBuildingTypes == null || _buildingRegister == null)
+            if (_cardsManager == null || _switchingBuildingTypes == null || _buildingRegister == null)
                 Debug.LogWarning("Missing ConstructionModesInitialize component in UIBootstrap");
             
-            _cardsOfBuildings.Initialize(_switchingModsUI, _switchingBuildingTypes, _buildingRegister);
+            _cardsManager.Initialize(_switchingModsUI, _switchingBuildingTypes, _buildingRegister);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Gameplay
 
         public void Initialize()
         {
-            FindAnyObjectByType<CardsOfBuildings>().cardIsClick.AddListener(StartBuilding);
-            FindAnyObjectByType<CardsOfBuildings>().cardIsHeld.AddListener(StartBuildingProcess);
+            FindAnyObjectByType<CardParameters>().cardIsClick.AddListener(StartBuilding);
+            FindAnyObjectByType<CardParameters>().cardIsHeld.AddListener(StartBuildingProcess);
         }
 
         private void StartBuildingProcess(bool buttonStart, GameObject prefab)
@@ -24,7 +24,6 @@ namespace Gameplay
 
         private void StartBuilding(GameObject prefab)
         {
-            Debug.Log("StartBuilding");
             startOfBuilding.Invoke(prefab);
         }
 
@@ -32,12 +31,10 @@ namespace Gameplay
         {
             if (buttonHold)
             {
-                Debug.Log("ProcessBuilding");
                 processOfBuilding.Invoke(prefab);
             }
             else
             {
-                Debug.Log("EndBuilding");
                 endOfConstruction.Invoke(prefab);
             }
             

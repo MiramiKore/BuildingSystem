@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using HUD.Data;
+using Gameplay;
 using UnityEngine;
 
-namespace HUD.ConstructionMode
+namespace HUD
 {
     public class BuildingRegister : MonoBehaviour
     {

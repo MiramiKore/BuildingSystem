@@ -1,8 +1,8 @@
-﻿using HUD.Data;
+﻿using Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HUD.ConstructionMode.TypesConstruction.Types
+namespace HUD.ConstructionMode.TypesOfBuildings.Types
 {
     public class Type : MonoBehaviour
     {

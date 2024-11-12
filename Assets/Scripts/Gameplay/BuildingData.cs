@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HUD.Data
+namespace Gameplay
 {
     public class BuildingData : MonoBehaviour
     {

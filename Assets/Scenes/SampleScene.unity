@@ -2220,18 +2220,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445246087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ea6c80c0764e479b837a7d21a3ee4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 33a8c1e83bb845ad9062ac71d5f2c862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardIsHeld:
-    m_PersistentCalls:
-      m_Calls: []
   cardIsClick:
     m_PersistentCalls:
       m_Calls: []
-  buildingCardPrefab: {fileID: 3117278715773547024, guid: e4f66628ac716f448ac8e49a1a845531, type: 3}
-  locationInHierarchy: {fileID: 1445246088}
-  cardsList: []
+  cardIsHeld:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1569088321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2718,7 @@ MonoBehaviour:
   typesList:
   - {fileID: 880048300}
   - {fileID: 792471525}
+  customColor: {r: 1, g: 0.76862746, b: 0.24313726, a: 1}
 --- !u!1 &1921804504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009284245}
   - component: {fileID: 2009284246}
+  - component: {fileID: 2009284247}
   m_Layer: 0
   m_Name: BuildingModUI
   m_TagString: Untagged
@@ -2854,6 +2853,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+--- !u!114 &2009284247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009284244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ea6c80c0764e479b837a7d21a3ee4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardIsCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingCardPrefab: {fileID: 3117278715773547024, guid: e4f66628ac716f448ac8e49a1a845531, type: 3}
+  locationInHierarchy: {fileID: 1445246088}
+  cardsList: []
 --- !u!1 &2021574894
 GameObject:
   m_ObjectHideFlags: 0

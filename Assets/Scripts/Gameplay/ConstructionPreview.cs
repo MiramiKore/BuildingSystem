@@ -12,34 +12,35 @@ namespace Gameplay
         [SerializeField] private LayerMask groundLayer;
 
         private Camera _mainCamera;
-
-        private BuildingSystem _buildingSystem;
-
+        
         private Grid _grid;
 
         public void Initialize(BuildingSystem buildingSystem)
         {
             _mainCamera = Camera.main;
             _grid = FindAnyObjectByType<Grid>();
-
-            _buildingSystem = buildingSystem;
             
-            _buildingSystem.startOfBuilding.AddListener(StartPreview);
-            _buildingSystem.processOfBuilding.AddListener(MovePreview);
-            _buildingSystem.endOfConstruction.AddListener(StopPreview);
+            buildingSystem.startOfBuilding.AddListener(StartPreview);
+            buildingSystem.processOfBuilding.AddListener(MovePreview);
+            buildingSystem.endOfConstruction.AddListener(StopPreview);
         }
 
         private void StartPreview(GameObject building)
         {
-            buildingPreview.transform.localScale = building.transform.localScale;
-            buildingPreview.GetComponent<MeshFilter>().sharedMesh = building.GetComponent<MeshFilter>().sharedMesh;
+            SetPreviewParameters(building);
             
             buildingPreview.SetActive(true);
         }
-
+        
         private void StopPreview(GameObject building)
         {
             buildingPreview.SetActive(false);
+        }
+        
+        private void SetPreviewParameters(GameObject building)
+        {
+            buildingPreview.transform.localScale = building.transform.localScale;
+            buildingPreview.GetComponent<MeshFilter>().sharedMesh = building.GetComponent<MeshFilter>().sharedMesh;
         }
         
         private void MovePreview(GameObject building)
