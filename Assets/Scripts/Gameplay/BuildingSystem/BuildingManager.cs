@@ -3,9 +3,9 @@ using HUD.ConstructionMode;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gameplay
+namespace Gameplay.BuildingSystem
 {
-    public class BuildingSystem : MonoBehaviour
+    public class BuildingManager : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<GameObject> startOfBuilding;
         [HideInInspector] public UnityEvent<GameObject> processOfBuilding;
@@ -17,16 +17,19 @@ namespace Gameplay
             FindAnyObjectByType<CardParameters>().cardIsHeld.AddListener(StartBuildingProcess);
         }
 
-        private void StartBuildingProcess(bool buttonStart, GameObject prefab)
+        // Запускаем процесс строительства
+        private void StartBuildingProcess(bool buttonHold, GameObject prefab)
         {
-            StartCoroutine(BuildingProcess(buttonStart, prefab));
+            StartCoroutine(BuildingProcess(buttonHold, prefab));
         }
 
+        // Начало строительства
         private void StartBuilding(GameObject prefab)
         {
             startOfBuilding.Invoke(prefab);
         }
 
+        // Процесс строительства
         private IEnumerator BuildingProcess(bool buttonHold, GameObject prefab)
         {
             if (buttonHold)

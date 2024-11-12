@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Gameplay;
+using Gameplay.BuildingSystem;
 using HUD.ConstructionMode.TypesOfBuildings;
 using HUD.GameModes;
 using HUD.GameModes.Modes;

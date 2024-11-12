@@ -1,4 +1,4 @@
-﻿using Gameplay;
+﻿using Gameplay.BuildingSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -36,7 +36,7 @@ namespace HUD.ConstructionMode
         private void SetTriggersListeners(GameObject card, BuildingData data)
         {
             var holder = card.GetComponent<EventTrigger>();
-
+            
             holder.triggers[0].callback.AddListener((_) => cardIsClick.Invoke(data.gameObject));
             holder.triggers[1].callback.AddListener((_) => cardIsHeld.Invoke(true, data.gameObject));
             holder.triggers[2].callback.AddListener((_) => cardIsHeld.Invoke(false, data.gameObject));

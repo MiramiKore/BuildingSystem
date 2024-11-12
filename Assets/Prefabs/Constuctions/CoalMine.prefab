@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6980533688473321158}
   - component: {fileID: 4626072215875654774}
   - component: {fileID: 207171552686945465}
-  - component: {fileID: -544045113669116129}
+  - component: {fileID: 1322816598946562452}
   m_Layer: 0
   m_Name: CoalMine
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-544045113669116129
+--- !u!114 &1322816598946562452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7025463506391436948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23891c4ddc24831acd707e1116dbdef, type: 3}
+  m_Script: {fileID: 11500000, guid: e49aa5a169f497742822e19d545cf181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 4, y: 4}
